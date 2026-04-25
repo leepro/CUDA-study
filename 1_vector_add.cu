@@ -21,6 +21,8 @@ int main() {
         h_B[i] = i * 2;
     }
 
+//    printf("%f %f\n", h_A[100], h_B[100]);
+
     float *d_A, *d_B, *d_C;
     cudaMalloc(&d_A, N * sizeof(float));
     cudaMalloc(&d_B, N * sizeof(float));
@@ -31,6 +33,12 @@ int main() {
 
     int blocks = (N + 255) / 256;
     vectorAdd<<<blocks, 256>>>(d_A, d_B, d_C, N);
+
+    cudaError_t err = cudaGetLastError();
+    if (err != cudaSuccess) {
+        printf("CUDA error: %s\n", cudaGetErrorString(err));
+        return 1;
+    }
 
     cudaMemcpy(h_C, d_C, N * sizeof(float), cudaMemcpyDeviceToHost);
 
