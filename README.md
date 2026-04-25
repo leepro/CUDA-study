@@ -12,7 +12,9 @@ A collection of simple CUDA programs to learn GPU programming.
 | 4 | `4_reduce_sum.cu` | Parallel reduction for sum |
 | 5 | `5_dot_product.cu` | Dot product with shared memory |
 | 6 | `6_transpose.cu` | Matrix transpose |
-| - | `matmul.cu` | Matrix multiplication (full kernel) |
+| 7 | `7_matmul.cu` | Matrix multiplication |
+| 8 | `8_ptx_example.cu` | PTX inline assembly example |
+| 9 | `9_circulate.cu` | Data circulation/rotation pattern |
 
 ## Compile
 
